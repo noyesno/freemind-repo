@@ -34,8 +34,21 @@ proc remove_freemind_dummy {text} {
 }
 
 
-puts {<?xml version="1.0" encoding="utf-8"?>}
+set xml_head {<?xml version="1.0" encoding="utf-8"?>}
+
+set nline 0
 while {[gets stdin line]>=0} {
+  incr nline
+
+  if {$nline==1} {
+    puts $xml_head
+
+    # compare with "<?xml "
+    if [string equal -length 6 $line $xml_head] {
+      continue
+    }
+  }
+
   set line [decode_entities $line]
   set line [remove_freemind_dummy $line]
   puts $line
