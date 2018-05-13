@@ -1,0 +1,10 @@
+
+## Quick Usage
+
+
+```
+echo "*.mm filter=freemind" >> .gitattributes
+
+git config filter.freemind.clean mmclean
+git config filter.freemind.smudge cat
+```
