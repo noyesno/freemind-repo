@@ -1,6 +1,12 @@
 
 help:
-	@echo "make init       ;# init mindmap repo"
+	@echo ""
+	@echo "Usage:"
+	@echo ""
+	@echo "  make init                       ;# init mindmap repo"
+	@echo ""
+	@echo "  ./bin/mmclean.tcl < test.mm     ;# clean mindmap file"
+	@echo ""
 
 init:
 	echo "*.mm filter=freemind" >> .gitattributes
